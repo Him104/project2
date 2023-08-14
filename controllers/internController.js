@@ -1,5 +1,5 @@
 const internModel = require("../models/internModel.js");
-
+const validator = require('validator');
 const createIntern = async function (req, res) {
     try {
       const data = req.body;
@@ -11,9 +11,14 @@ const createIntern = async function (req, res) {
       if (!data.email) {
         return res.status(400).send({ status: false, msg: "email is required" });
       }
+      const validEmail = validator.isEmail(data.email)
+      if (!validEmail) {
+        return res.status(400).send({status:false,msg:"email is not valid"})
+      }
       if (!data.mobile) {
         return res.status(400).send({ status: false, msg: "mobile is required" });
       }
+    
       if (!data.collegeId) {
         return res.status(400).send({ status: false, msg: "collegeId is required" });
       }
