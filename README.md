@@ -124,3 +124,5 @@ Refer below sample
   }
 }
 ```
+for installing build : run npm install
+For starting the server : run npm start / node app.js
