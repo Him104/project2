@@ -18,6 +18,9 @@ const createIntern = async function (req, res) {
       if (!data.mobile) {
         return res.status(400).send({ status: false, msg: "mobile is required" });
       }
+      if (data.mobile.length>10 || data.mobile.length<10) {
+        return res.status(400).send({status: false, msg: "mobile number should be ten digits only"});
+      }
     
       if (!data.collegeId) {
         return res.status(400).send({ status: false, msg: "collegeId is required" });
