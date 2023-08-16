@@ -4,7 +4,9 @@
   "description": "- Create a group database `groupXDatabase`. You can clean the db you previously used and resue that.\r - This time each group should have a *single git branch*. Coordinate amongst yourselves by ensuring every next person pulls the code last pushed by a team mate. You branch will be checked as part of the demo. Branch name should follow the naming convention `project/internshipGroupX`\r - Follow the naming conventions exactly as instructed. The backend code will be integrated with the front-end application which means any mismatch in the expected request body will lead to failure in successful integration.",
   "main": "app.js",
   "scripts": {
+    "start":"nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "Subhash Maurya",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "express": "^4.18.2",
     "mongoose": "^7.4.3",
     "nodemon": "^3.0.1",
+    "npm-check-updates": "^16.11.1",
     "validator": "^13.11.0"
   }
 }

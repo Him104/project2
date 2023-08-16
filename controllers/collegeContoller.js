@@ -2,7 +2,13 @@ const collegeModel = require("../models/collegeModel.js");
 
 const createCollege = async function (req, res) {
     try {
+
+      const queryParams = req.query;
       const data = req.body;
+
+      if (!queryParams) {
+return res.status(400).send(400).send({status:false, msg: "fill data in query params"});        
+      }
       if (!data.name) {
         return res
           .status(400)
@@ -16,13 +22,13 @@ const createCollege = async function (req, res) {
       }
      
   
-      const createCollege1 = await collegeModel.create(data);
+      const createCollege = await collegeModel.create(data);
       res
         .status(201)
         .send({
           status: true,
           message: "College created successfully",
-          data: createCollege1,
+          data: createCollege,
         });
     } catch (error) {
       return res.status(500).send({ msg: error.message });
